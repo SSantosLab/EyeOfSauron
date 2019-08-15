@@ -2,7 +2,7 @@
 export CONDA_DIR=/cvmfs/des.opensciencegrid.org/fnal/anaconda2
 source $CONDA_DIR/etc/profile.d/conda.sh
 # this environment has the geckodriver installed: 
-conda activate m18b
+conda activate des18a
 
 # run data preparation script
 #python prep_data.py
