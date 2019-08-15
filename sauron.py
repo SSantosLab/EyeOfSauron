@@ -23,7 +23,7 @@ def get_list_of_gals(ra,dec, gal_cat,
         id_col_num, ra_col_num, dec_col_num, verbose=True) :
     usecols=(id_col_num, ra_col_num,dec_col_num)
     id, dc_ra, dc_dec = np.genfromtxt(
-        filename,unpack=True,usecols=usecols,delimiter=",", skip_header=1)
+        gal_cat,unpack=True,usecols=usecols,delimiter=",", skip_header=1)
     
     distance = np.sqrt( 
         ((ra-dc_ra)*np.cos(dc_dec*2*np.pi/360.))**2 + (dec-dc_dec)**2)
@@ -41,11 +41,11 @@ def get_list_of_gals(ra,dec, gal_cat,
 #
 # the main routine, that shows both the search and template images
 #
-def work_image(expid, image_ra,image_dec, filter="g",
-               dir="/data/des51.b/data/DTS/src/20190510/", gal_list=None, 
+# search_dir is places like: /data/des51.b/data/DTS/src/20190510/
+def work_image(search_dir, expid, image_ra,image_dec, filter, gal_list,
                id_col_num=0, ra_col_num=1, dec_col_num=2,
                do_num = -1, do_ccdnum=-1): #Stampsize is half width
-    infilename = dir + "DECam_00{}.fits.fz".format(expid)
+    infilename = search_dir + "DECam_00{}.fits.fz".format(expid)
     do_bliss = True; 
     
     print("Opening file: " + infilename)
