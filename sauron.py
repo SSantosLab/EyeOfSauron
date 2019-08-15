@@ -30,10 +30,10 @@ def get_list_of_gals(ra,dec, gal_cat,
     #distance = support.gc_separation(ra, dec, dc_ra, dc_dec)
     ix = distance < 1.2
     gals_id, gals_ra, gals_dec = id[ix], dc_ra[ix], dc_dec[ix]
-    for i in range(gals_ra.size):
-        if verbose:
-            print "{} {:10d} {:10.5f} {:10.5f} \t {}".format(
-                i, gals_id[i], gals_ra[i], gals_dec[i])
+#    for i in range(gals_ra.size):
+#        if verbose: print
+#            print "{} {:10d} {:10.5f} {:10.5f} \t {}".format(
+#                i, gals_id[i], gals_ra[i], gals_dec[i])
     return gals_id, gals_ra, gals_dec
 
 
